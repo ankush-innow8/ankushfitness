@@ -3,7 +3,9 @@ const sendMail = require('./mail')
 const app = express()
 const path = require('path')
 
-const PORT = 8800
+// const PORT = 8800
+const port = process.env.PORT || 8800
+
 var bodyParser=require("body-parser"); 
   
 const mongoose = require('mongoose'); 
@@ -77,4 +79,4 @@ app.get('/', (req, res) => {
 })
 app.use(express.static(path.join(__dirname , 'public')));
 
-app.listen(PORT, () => console.log('Server is starting  on Port, ', 8080))
+app.listen(port, () => console.log('Server is starting  on Port ' + port))
